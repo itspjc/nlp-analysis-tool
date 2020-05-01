@@ -18,7 +18,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import SentimentAnalyzer from "./views/SentimentAnalyzer";
-import WordCloud from "./views/WordCloud";
+import Lda from "./views/Lda";
 import Introduction from "./views/Introduction";
 import { Router, Route, Switch, Link } from "react-router-dom";
 import { createBrowserHistory } from "history";
@@ -90,7 +90,7 @@ const useStyles = makeStyles((theme) => ({
 function App() {
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false); // Drawer 초기값
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -195,7 +195,7 @@ function App() {
             <div className={classes.drawerHeader} />
             <Switch>
               <Route path="/sentiment-analyzer" component={SentimentAnalyzer} />
-              <Route path="/word-cloud" component={WordCloud} />
+              <Route path="/word-cloud" component={Lda} />
               <Route path="/" component={Introduction} />
             </Switch>
             {/* <Typography paragraph>
